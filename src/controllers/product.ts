@@ -19,7 +19,6 @@ export const productGetAllController = Asyncly(async(req, res) => {
 })
 
 export const productUpdateController = Asyncly(async(req, res) => {
-    console.log(req.params.id, "request params")
     const product = await updateProduct(req.user._id, req.params.id, req.body)
     res.status(httpStatus.OK).send(product)
 })

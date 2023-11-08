@@ -47,14 +47,6 @@ app.use(function (err: any, req: express.Request, res: express.Response, next: e
 })
 
 
-// app.use(function (err: any, req: express.Request, res: express.Response, next: express.NextFunction) {
-//     console.log(err, "current error")
-//     res.status(err.status || 500).end();
-// });
-
-// app.use((req: express.Request, res: express.Response, next: express.NextFunction) => {
-//     next(new ApiError(httpStatus.NOT_FOUND, "Not found"));
-// });
 
 const server = createServer(app);
 

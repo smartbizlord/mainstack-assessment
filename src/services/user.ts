@@ -46,9 +46,7 @@ export const refreshToken = async(token) => {
 			return new ApiError(httpStatus.UNAUTHORIZED, 'Please authenticate');
 		}
 		user = await dB.users.findOne({ _id: decoded.sub });
-        console.log(decoded, "no wahalurd")
 	})
-    console.log(user, "just for test")
     const newTokens = await generateToken(user)
     if(!newTokens) return new ApiError(httpStatus.BAD_REQUEST, "The token is not valid")
     return newTokens

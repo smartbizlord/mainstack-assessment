@@ -19,7 +19,6 @@ export const verifyToken = async (req, res, next) => {
 		}
 		staticy = decoded.sub;
 		req.user = await dB.users.findOne({ _id: staticy });
-        console.log(staticy, "decoded data")
 		next();
 	});
 };

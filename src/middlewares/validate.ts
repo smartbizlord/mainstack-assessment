@@ -28,8 +28,6 @@ export const validate: MiddlewareVoidType = (schema: object) => (req: Request, r
 				default:
 					break;
 			}
-			console.log(details, 'Details Object');
-			// return details.message
 		});
 
 		Object.keys(body).length !== 0 && (errorMessage.body = body);

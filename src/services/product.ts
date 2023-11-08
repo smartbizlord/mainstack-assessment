@@ -4,7 +4,6 @@ import httpStatus from 'http-status'
 
 export const createProduct = async(data, owner) => {
     data.owner = owner
-    console.log(data, "current product data")
     const product = await dB.products.create(data)
     return product
 }
@@ -23,7 +22,6 @@ export const getAllProduct = async() => {
 }
 
 export const updateProduct = async(owner, _id, update) => {
-    console.log(owner, _id, update, "owner, id and update respectfully")
     const product = await dB.products.findOneAndUpdate({_id, owner}, update)
     if(!product) {
         throw new ApiError(httpStatus.NOT_FOUND, "Can't find the resource on our servers")

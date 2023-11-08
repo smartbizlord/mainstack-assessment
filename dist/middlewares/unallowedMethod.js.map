@@ -1,0 +1,1 @@
+{"version":3,"file":"unallowedMethod.js","sourceRoot":"","sources":["../../src/middlewares/unallowedMethod.ts"],"names":[],"mappings":"AAEA,MAAM,CAAC,MAAM,eAAe,GAAG,CAAC,GAAY,EAAE,GAAa,EAAE,IAAkB,EAAE,EAAE;IAC/E,GAAG,CAAC,MAAM,CAAC,GAAG,CAAC,CAAC,GAAG,EAAE,CAAA;AACzB,CAAC,CAAA"}

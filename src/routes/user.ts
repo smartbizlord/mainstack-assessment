@@ -1,6 +1,6 @@
 import { Router } from 'express';
 import { validate } from '../middlewares/validate.js';
-import { loginUser, createUser, logoutUser, refreshToken } from '../validations/user.js';
+import { loginUser, createUser, refreshToken } from '../validations/user.js';
 import { unallowedMethod } from '../middlewares/unallowedMethod.js';
 import { userRegisterController, userLoginController, userRefreshTokenController } from '../controllers/user.js';
 

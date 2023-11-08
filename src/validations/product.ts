@@ -11,10 +11,10 @@ export const createProduct = {
 }
 
 export const updateProduct = {
-    body: Joi.object().keys({
-        name: Joi.string().required(),
-        img: Joi.string().required().uri(),
-        category: Joi.string().required(),
-        price: Joi.number().min(2000).required(),
+    body: Joi.object().min(1).keys({
+        name: Joi.string(),
+        img: Joi.string().uri(),
+        category: Joi.string(),
+        price: Joi.number().min(2000),
     })
 }

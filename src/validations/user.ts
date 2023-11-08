@@ -33,9 +33,3 @@ export const refreshToken = {
         token: Joi.string().required(),
     })
 }
-
-export const logoutUser = {
-    body: Joi.object().keys({
-        token: Joi.string().required(),
-    })
-}

@@ -35,13 +35,13 @@ export const validate: MiddlewareVoidType = (schema: object) => (req: Request, r
 		Object.keys(body).length !== 0 && (errorMessage.body = body);
 		Object.keys(query).length !== 0 && (errorMessage.query = query);
 
-		return  new ApiError(
+		return next(new ApiError(
 				httpStatus.BAD_REQUEST,
 				JSON.stringify(errorMessage),
 				undefined,
 				undefined,
 				true,
-			)
+			))
 	}
 	Object.assign(req, value);
 	return next();

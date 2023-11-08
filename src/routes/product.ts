@@ -7,12 +7,12 @@ import verifyToken from '../middlewares/verify.js';
 
 export const productRouter = Router();
 
-productRouter.route('/products')
+productRouter.route('/')
     .post(validate(createProduct), verifyToken, productCreateController)
     .get(productGetAllController)
     .all(unallowedMethod)
 
-productRouter.route('/products/:id')
+productRouter.route('/:id')
     .put(validate(updateProduct), verifyToken, productUpdateController)
     .get(productGetSingleController)
     .delete(verifyToken, productDeleteController)

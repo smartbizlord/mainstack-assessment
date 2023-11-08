@@ -9,6 +9,16 @@ import ApiError from './utils/ApiError.js';
 
 const app = express();
 
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+
+app.use("/", router);
+
+// sanitize request data
+app.use(ExpressMongoSanitize());
+
+
 app.use(function (err: any, req: express.Request, res: express.Response, next: express.NextFunction) {
 	let error = err;
 	if (!(error instanceof ApiError)) {
@@ -36,23 +46,15 @@ app.use(function (err: any, req: express.Request, res: express.Response, next: e
 	res.status(statusCode).send(response);
 })
 
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
 
-app.use("/", router);
+// app.use(function (err: any, req: express.Request, res: express.Response, next: express.NextFunction) {
+//     console.log(err, "current error")
+//     res.status(err.status || 500).end();
+// });
 
-// sanitize request data
-app.use(ExpressMongoSanitize());
-
-
-app.use(function (err: any, req: express.Request, res: express.Response, next: express.NextFunction) {
-    console.log(err, "current error")
-    res.status(err.status || 500).end();
-});
-
-app.use((req: express.Request, res: express.Response, next: express.NextFunction) => {
-    next(new ApiError(httpStatus.NOT_FOUND, "Not found"));
-});
+// app.use((req: express.Request, res: express.Response, next: express.NextFunction) => {
+//     next(new ApiError(httpStatus.NOT_FOUND, "Not found"));
+// });
 
 const server = createServer(app);
 
